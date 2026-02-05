@@ -40,15 +40,14 @@ class _IconCardState extends State<IconCard> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: isHover ? scheme.primaryContainer : Colors.white,
-            border: Border.all(
-              color: isHover ? scheme.primary : Colors.grey.shade300,
-            ),
+            borderRadius: BorderRadius.circular(20),
+            //color: isHover ? scheme.primaryContainer : Colors.white,
+            color: isHover ? Colors.grey.shade300 : Colors.grey.shade200,
+            border: Border.all(color: Colors.grey.shade400),
             boxShadow: isHover
                 ? [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: Colors.black.withValues(alpha: 0.08),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -60,18 +59,50 @@ class _IconCardState extends State<IconCard> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(widget.icon.icon, size: 36, color: scheme.primary),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.grey.withValues(alpha: 0.20),
+                    border: Border.all(width: 1, color: Colors.grey.shade400),
+                  ),
+                  child: Icon(
+                    widget.icon.icon,
+                    size: 36,
+                    //color: scheme.primary,
+                    color: Colors.grey.shade800,
+                  ),
+                ),
                 const SizedBox(height: 8),
                 Text(
                   widget.icon.name,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 12),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                   maxLines: 2,
                 ),
                 const SizedBox(height: 4),
                 Text(
                   widget.icon.category,
                   style: TextStyle(fontSize: 10, color: Colors.grey.shade600),
+                ),
+                const SizedBox(height: 4),
+                Container(
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.grey.withValues(alpha: 0.20),
+                    border: Border.all(width: 1, color: Colors.grey.shade400),
+                  ),
+                  child: Text(
+                    "Icon.${widget.icon.iconName}",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 10, color: Colors.black),
+                  ),
                 ),
               ],
             ),
