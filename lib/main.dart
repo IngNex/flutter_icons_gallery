@@ -38,7 +38,9 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           elevation: 2,
           surfaceTintColor: Colors.transparent,
-          backgroundColor: Color(0xFF1E1E1E), // dark sólido
+          backgroundColor: Color(
+            0xFF151E31,
+          ), //Color(0xFF1E1E1E), // dark sólido
           foregroundColor: Colors.white,
         ),
       ),

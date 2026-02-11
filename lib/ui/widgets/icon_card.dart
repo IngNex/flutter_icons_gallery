@@ -29,7 +29,7 @@ class _IconCardState extends State<IconCard> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    //final scheme = Theme.of(context).colorScheme;
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -42,7 +42,7 @@ class _IconCardState extends State<IconCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             //color: isHover ? scheme.primaryContainer : Colors.white,
-            color: isHover ? Colors.grey.shade300 : Colors.grey.shade200,
+            color: isHover ? Color(0xFF151E31) : Color(0xFF151E31),
             border: Border.all(color: Colors.grey.shade400),
             boxShadow: isHover
                 ? [
@@ -55,43 +55,49 @@ class _IconCardState extends State<IconCard> {
                 : [],
           ),
           child: Padding(
+            //#151E31
             padding: const EdgeInsets.all(12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Colors.grey.withValues(alpha: 0.20),
+                    //color: Colors.grey.shade900.withValues(alpha: 0.20),
+                    color: Color(0xFF10182C),
                     border: Border.all(width: 1, color: Colors.grey.shade400),
                   ),
                   child: Icon(
                     widget.icon.icon,
                     size: 36,
                     //color: scheme.primary,
-                    color: Colors.grey.shade800,
+                    color: Colors.grey.shade200,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   widget.icon.name,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
-                    color: Colors.black,
+                    color: Colors.grey.shade100,
                     fontWeight: FontWeight.bold,
                   ),
-                  maxLines: 2,
+                  maxLines: 1,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  widget.icon.category,
-                  style: TextStyle(fontSize: 10, color: Colors.grey.shade600),
+                  widget.icon.category.toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey.shade500,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Container(
-                  padding: EdgeInsets.all(5),
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: Colors.grey.withValues(alpha: 0.20),
@@ -101,7 +107,7 @@ class _IconCardState extends State<IconCard> {
                     "Icon.${widget.icon.iconName}",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 10, color: Colors.black),
+                    style: TextStyle(fontSize: 10, color: Colors.grey.shade200),
                   ),
                 ),
               ],
