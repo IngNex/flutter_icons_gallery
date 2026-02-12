@@ -131,9 +131,12 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildHeader() {
     return Container(
-      padding: const EdgeInsets.all(30.0),
+      padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: Color(0xFF0F172A).withValues(alpha: 0.8),
+        border: Border(
+          bottom: BorderSide(width: 0.5, color: Colors.grey.shade100),
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,7 +198,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildSearch() {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(10),
       child: TextField(
         onChanged: (value) {
           setState(() => query = value);
